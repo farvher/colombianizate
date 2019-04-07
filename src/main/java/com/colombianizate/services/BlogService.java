@@ -1,7 +1,10 @@
 package com.colombianizate.services;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +31,15 @@ public class BlogService {
 	public List<BlogComment> findAllBlogComment(){
 		
 		return blogCommentRepository.findAll();
+	}
+	
+	public List<Comment> findCommentsByBlog(Long id){
+		
+		List<BlogComment> blogcomments = blogCommentRepository.findByIdBlog(id);
+		List<Long> ids = blogcomments.stream().map(i -> i.getIdComment()).collect(Collectors.toList());
+		
+		return commentRepository.findByIdIn(ids);
+	
 	}
 	
 

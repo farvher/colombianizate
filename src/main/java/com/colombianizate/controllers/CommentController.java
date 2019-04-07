@@ -35,7 +35,10 @@ public class CommentController {
 		
 		return blogService.findAllBlogComment();
 	}
-
+	@GetMapping("/commentsByBlogId/{id}")
+	public List<Comment> findCommentsByBlog(@PathVariable Long id){
+		return blogService.findCommentsByBlog(id);
+	}
 
 
 }
