@@ -1,10 +1,15 @@
+
+--id blog , blog , time, userid , titulo blog
 insert into blog values (1,'contenido del blog',CURRENT_TIMESTAMP(),1,'primer blog')
 insert into blog values (2,'contenido del blog 2',CURRENT_TIMESTAMP(),1,'primer blog')
 
 
+--id coment , comentario , time , user id
 insert into comment values (1, 'comentario blog 1', CURRENT_TIMESTAMP(), 1)
 insert into comment values (2, 'comentario blog 2', CURRENT_TIMESTAMP(), 1)
 
+
+--id , id blog , id comment
 insert into blog_comment values(1,1,1)
 insert into blog_comment values(2,1,2)
 
